@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сортування таблиці</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>Журнал успішності студентів</h1>
+      <p class="subtitle">Клікніть заголовок стовпця, щоб відсортувати таблицю. Повторний клік змінює напрямок
+        сортування.</p>
+    </header>
+
+    <section class="controls" aria-label="Керування таблицею">
+      <div class="search-wrap">
+        <label for="search-input" class="visually-hidden">Пошук за прізвищем</label>
+        <input type="search" id="search-input" placeholder="Пошук за прізвищем або групою…" autocomplete="off">
+        <button type="button" id="clear-search" class="btn-secondary" hidden>Очистити</button>
+      </div>
+      <p class="sort-info" id="sort-info" aria-live="polite">Сортування: за № (зростання)</p>
+    </section>
+
+    <div class="table-wrap">
+      <table id="students-table" class="data-table">
+        <thead>
+          <tr>
+            <th scope="col" data-column="index" data-type="number" class="sortable sorted-asc" tabindex="0"
+              role="columnheader" aria-sort="ascending">
+              № <span class="sort-icon" aria-hidden="true"></span>
+            </th>
+            <th scope="col" data-column="name" data-type="string" class="sortable" tabindex="0" role="columnheader"
+              aria-sort="none">
+              Прізвище та ім’я <span class="sort-icon" aria-hidden="true"></span>
+            </th>
+            <th scope="col" data-column="group" data-type="string" class="sortable" tabindex="0" role="columnheader"
+              aria-sort="none">
+              Група <span class="sort-icon" aria-hidden="true"></span>
+            </th>
+            <th scope="col" data-column="grade" data-type="number" class="sortable" tabindex="0" role="columnheader"
+              aria-sort="none">
+              Середній бал <span class="sort-icon" aria-hidden="true"></span>
+            </th>
+            <th scope="col" data-column="attendance" data-type="number" class="sortable" tabindex="0"
+              role="columnheader" aria-sort="none">
+              Відвідуваність, % <span class="sort-icon" aria-hidden="true"></span>
+            </th>
+            <th scope="col" data-column="status" data-type="string" class="sortable" tabindex="0" role="columnheader"
+              aria-sort="none">
+              Статус <span class="sort-icon" aria-hidden="true"></span>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+      </table>
+    </div>
+
+    <p class="row-count" id="row-count" aria-live="polite"></p>
+
+  </div>
+
+  <script src="vendor/jquery-3.7.1.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
